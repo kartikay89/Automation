@@ -32,5 +32,4 @@ time.sleep(10)
 driver.find_element_by_xpath('//*[@id="captcha"]').click()
 
 
-time.sleep(100)
-	
+time.sleep(100)##
