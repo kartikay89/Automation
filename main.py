@@ -16,8 +16,7 @@ def browser_queue():
     # add the browsers to the queue
     q.put(web_automation.launchBrowser())
     
-    # get the items from the queue
-    q = q.get()
+    
     return q
    
     
@@ -28,7 +27,8 @@ def workers(q):
     """
     This function is used to initiate the workers that will start browsers in parallel.
     """
-    
+    # get the items from the queue
+    q = q.get()
     
     print(f'Starting {q}')
     
@@ -37,7 +37,7 @@ def workers(q):
     
     while not q.empty():
     # initialize the worker with a number
-        for thread_range in range(2):
+        for thread_range in range(3):
             worker = threading.Thread(target=browser_queue, daemon=True, args=(thread_range,))     
             # put all threads in a list to join them.
             threads.append(worker)
