@@ -4,10 +4,13 @@ from selenium import webdriver
 import time
 
 
-def launchBrowser():
+
+
+def launchBrowser(*url):
 			
 	driver = webdriver.Chrome(r"/Users/kartikaysingh/Desktop/Projects/Code_snippets/chromedriver")
-	driver.get("https://webfront.payu.in/webfront/#/payment/webfrontpage/strawesome-quencher/single/455")
+	# opening the browser urls
+	driver.get(url)
 	print(driver.title)
 	time.sleep(5)
 	return driver
